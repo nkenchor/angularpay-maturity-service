@@ -1,0 +1,23 @@
+server:
+  port: 20440
+
+spring:
+  application.name: maturity-service
+
+angularpay:
+  codecSizeInMB: 50
+  notificationUrl: http://localhost:20270
+  userconfigUrl: http://localhost:20210
+  maturityCandidates:
+    - name: paynable
+      url: http://localhost:20370/paynable/requests
+      cron: 0 8 * * * ?
+      slaInDays: 7
+    - name: peer-fund
+      url: http://localhost:20380/peer-fund/requests
+      cron: 0 8 * * * ?
+      slaInDays: 7
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 10000
